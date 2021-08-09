@@ -8,8 +8,8 @@
 // @match       https://store.steampowered.com/app/*
 // @grant       GM_xmlhttpRequest
 // @icon        https://steamcommunity.com/favicon.ico
-// @updateURL   https://github.com/markk112/userscripts/raw/main/steam-price-checker.user.js
-// @downloadURL https://github.com/markk112/userscripts/raw/main/steam-price-checker.user.js
+// @updateURL   https://raw.githubusercontent.com/markk112/userscripts/main/steam-price-checker.user.js
+// @downloadURL https://raw.githubusercontent.com/markk112/userscripts/main/steam-price-checker.user.js
 // @supportURL  https://github.com/markk112/userscripts/issues
 // ==/UserScript==
 
