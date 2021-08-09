@@ -120,7 +120,6 @@
             }
             finalGameName = shortenedGameName + '-' + gameNameNums;
         }
-        console.log(finalGameName);
         return finalGameName;
     }
 
