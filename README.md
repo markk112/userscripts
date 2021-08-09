@@ -1,7 +1,7 @@
 # Tampermonkey Userscript Collection
 
-<img src="https://raw.githubusercontent.com/markk112/userscripts/main/images/tampermonkey-logo.png" align="right"
-     alt="Size Limit logo by Anton Lovchikov" width="120" height="178">
+<img src="https://raw.githubusercontent.com/markk112/userscripts/main/images/tampermonkey-logo.png" align="center"
+     alt="Tampermonkey Logo" width="100" height="100">
 
 A collection of userscripts I have developed over the years.
 
