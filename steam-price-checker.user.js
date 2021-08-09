@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Steam Game Price Checker
-// @version     1.0.1
+// @version     1.0.2
 // @description A userscript that displays the lowest prices for the current viewed Steam game
 // @license     MIT
 // @author      markk112
