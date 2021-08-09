@@ -12,7 +12,6 @@
 // @downloadURL https://raw.githubusercontent.com/markk112/userscripts/main/dist/steam-price-checker.user.js
 // @supportURL  https://github.com/markk112/userscripts/issues
 // ==/UserScript==
-
 (() => {
     'use strict';
 

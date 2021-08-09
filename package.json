@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A collection of userscripts I have developed over the years",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node src/build-release.js"
   },
   "repository": {
     "type": "git",
@@ -14,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/markk112/userscripts/issues"
   },
-  "homepage": "https://github.com/markk112/userscripts#readme"
+  "homepage": "https://github.com/markk112/userscripts#readme",
+  "devDependencies": {
+    "chalk": "^4.1.2"
+  }
 }
