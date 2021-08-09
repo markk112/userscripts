@@ -394,6 +394,7 @@
             </style>
         `.trim();
         gameTitleRowDiv.appendChild(priceCheckRow);
+        console.log('Update');
     }
 
     // Start the userscript
