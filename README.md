@@ -1,7 +1,12 @@
 # Tampermonkey Userscript Collection
 
-<img src="https://raw.githubusercontent.com/markk112/userscripts/main/images/tampermonkey-logo.png" align="center"
+<p float="left">
+    <img src="https://raw.githubusercontent.com/markk112/userscripts/main/images/tampermonkey-logo.png" align="center"
      alt="Tampermonkey Logo" width="100" height="100">
+     <img src="https://raw.githubusercontent.com/markk112/userscripts/main/images/javascript-logo.png" align="center"
+     alt="Javascript Logo" width="100" height="100">
+</p>
+
 
 A collection of userscripts I have developed over the years.
 
