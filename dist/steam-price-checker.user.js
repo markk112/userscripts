@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Steam Game Price Checker
-// @version     1.0.3
+// @version     1.0.5
 // @description A userscript that displays the lowest prices for the current viewed Steam game
 // @license     MIT
 // @author      markk112
@@ -170,11 +170,10 @@
 
     // Outputs formatted prettier messages to console
     function brandedConsoleOutput(output) {
-        console.log(`%c Steam %cPrice %cChecker %cv${ver}%c %c${output}`,
+        console.log(`%c Steam %cPrice %cChecker %c %c${output}`,
             'background-color: #000; color: #17A863;',
             'background-color: #000; color: #F54339;',
             'background-color: #000; color: #1CCE78;',
-            'background-color: #000; color: #FFF;',
             'background-color: none;',
             'color: #ABABAB; text-decoration: underline;');
     }
@@ -257,9 +256,8 @@
                 tileNode.classList.add('low-price');
             }
             tileNode.innerHTML = `
-                <p class="store-name">${gamePriceEntry[0]}</p>
-                <p class="store-price-diff"><i class="fas fa-piggy-bank" style="color: #D8B95E; margin-right: 5px;"></i>${'£' + gamePriceEntry[2].priceDifference}</p>
                 <a href="${gamePriceEntry[1]}" target="_blank" rel="noopener noreferrer" >
+                    <p class="store-name">${gamePriceEntry[0]}</p>
                     <p class="store-price">£${await convertPriceFloatToStr(gamePriceEntry[2].gbp)}</p>
                 </a>
             `.trim();
@@ -330,66 +328,69 @@
         priceCheckRow.id = 'devx-spc';
 
         priceCheckRow.innerHTML = `
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <style>
+                @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap');
                 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;400;700&display=swap');
 
                 .page_title_area.game_title_area.page_content ul {
                     list-style: none;
                     display: none;
                     justify-content: space-evenly;
-                    font-family: 'Roboto', sans-serif;
-                    padding: 20px 15px 20px 15px;
+                    font-family: 'IBM Plex Sans Arabic', sans-serif;
+                    color: #67c1f5;
+                    padding: 10px 5px;
                     background-image: linear-gradient(90deg, rgba(12, 17, 25, 0.5), rgba(35, 51, 74, 0.2));
                 }
                 .page_title_area.game_title_area.page_content ul li {
                     width: 100%;
-                    padding: 0 10px;
+                    padding: 0 5px;
                     min-height: 0;
                     min-width: 0;
                 }
 
                 .page_title_area.game_title_area.page_content ul li a {
                     display: block;
-                    background-color: #F54339;
+                    background-color: rgba( 103, 193, 245, 0.2 );
                     text-align: center;
                     color: inherit;
                     border-radius: 4px;
+                    overflow: auto;
                 }
                 .page_title_area.game_title_area.page_content ul li a:hover {
                     cursor: pointer;
-                    background-color: #F76A63;
+                    color: #fff;
+                    background-image: linear-gradient(135deg, rgb(103, 193, 245) 0%, rgb(65, 122, 155) 100%);
                 }
                 .page_title_area.game_title_area.page_content ul li.low-price a {
-                    background-color: #17A863;
+                    color: #d2efa9;
+                    background: -webkit-linear-gradient( top, #6fa720 5%, #588a1b 95%);
                 }
                 .page_title_area.game_title_area.page_content ul li.low-price a:hover {
                     cursor: pointer;
-                    background-color: #1CCE78;
+                    background: -webkit-linear-gradient( top, #8ED629 5%, #6AA621 95%);
+                    color: #fff;
                 }
 
+                .page_title_area.game_title_area.page_content ul li a p {
+                    line-height: 1;
+                }
                 .page_title_area.game_title_area.page_content ul li a p.store-price {
-                    padding: 8px 0;
-                    color: #FFF;
-                    font-size: 16px;
-                    font-weight: 300;
-                }
-                .page_title_area.game_title_area.page_content ul li p.store-name {
+                    margin-bottom: 10px;
+                    margin-top: 4px;
+                    color: inherit;
                     font-size: 12px;
-                    text-transform: uppercase;
-                    font-weight: 800;
-                    color: #FAFAFA;
-                    margin-bottom: 3px;
-                    letter-spacing: 1px;
-                    white-space: nowrap;
-                }
-                .page_title_area.game_title_area.page_content ul li p.store-price-diff {
-                    font-size: 11px;
-                    font-weight: 300;
                     font-family: inherit;
-                    margin-bottom: 8px;
-                    color: #8A8A8A;
                 }
+                .page_title_area.game_title_area.page_content ul li a p.store-name {
+                    margin-top: 10px;
+                    font-family: inherit;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    color: inherit;
+                    font-weight: bold;
+                }
+                
             </style>
         `.trim();
         gameTitleRowDiv.appendChild(priceCheckRow);
