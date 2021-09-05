@@ -50,7 +50,7 @@
         let difference;
         try {
             let gamePurchasePriceNode;
-            gamePurchasePriceNode = document.querySelector('div.game_purchase_price.price');
+            gamePurchasePriceNode = document.querySelector('.game_area_purchase_game div.game_purchase_price.price');
             if (!gamePurchasePriceNode) {
                 gamePurchasePriceNode = document.querySelector('div.discount_final_price');
             }
@@ -423,7 +423,7 @@
     }
 
     // Wait until page has been loaded
-    window.addEventListener('DOMContentLoaded', function (event) {
+    window.addEventListener('load', function (event) {
         userscriptInit();
     }, false);
     
