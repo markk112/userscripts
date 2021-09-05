@@ -409,7 +409,7 @@
         if (!isGameFree()) {
             injectUserScriptStyling();
             const gamePrices = await getGamePrices();
-            if (gamePrices) {
+            if (gamePrices && gamePrices.length > 0) {
                 const gamePriceEntries = await sanitiseJsonOutput(gamePrices);
                 await loadTiles(gamePriceEntries);
             } else {
