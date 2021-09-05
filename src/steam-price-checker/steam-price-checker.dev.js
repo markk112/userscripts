@@ -49,7 +49,11 @@
     async function calcPriceDifference(newPrice) {
         let difference;
         try {
-            const gamePurchasePriceNode = document.querySelector('div.game_purchase_price.price');
+            let gamePurchasePriceNode;
+            gamePurchasePriceNode = document.querySelector('div.game_purchase_price.price');
+            if (!gamePurchasePriceNode) {
+                gamePurchasePriceNode = document.querySelector('div.discount_final_price');
+            }
             const originalGamePrice = gamePurchasePriceNode.innerText.trim().substring(1);
             difference = (originalGamePrice - newPrice).toFixed(2);
         } catch (err) {
@@ -246,6 +250,7 @@
                 <a href="${gamePriceEntry[1]}" target="_blank" rel="noopener noreferrer" >
                     <p class="store-name">${gamePriceEntry[0]}</p>
                     <p class="store-price">£${await convertPriceFloatToStr(gamePriceEntry[2].gbp)}</p>
+                    <p class="price-diff">-£${gamePriceEntry[2].priceDifference}</p>
                 </a>
             `.trim();
             tilesBannerNode.appendChild(tileNode);
@@ -316,8 +321,6 @@
 
         priceCheckRow.innerHTML = `
             <style>
-                @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap');
-                @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
                 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;400;700&display=swap');
 
                 .page_title_area.game_title_area.page_content ul {
@@ -368,6 +371,7 @@
                     color: inherit;
                     font-size: 12px;
                     font-family: inherit;
+                    display: inline-block;
                 }
                 .page_title_area.game_title_area.page_content ul li a p.store-name {
                     margin-top: 10px;
@@ -377,7 +381,19 @@
                     color: inherit;
                     font-weight: bold;
                 }
-                
+                .page_title_area.game_title_area.page_content ul li a p.price-diff {
+                    display: inline-block;
+                    color: #8f98a0;
+                }
+                .page_title_area.game_title_area.page_content ul li a:hover p.price-diff {
+                    color: #b1b7bd;
+                }
+                .page_title_area.game_title_area.page_content ul li.low-price a p.price-diff {
+                    color: #a8bf87;
+                }
+                .page_title_area.game_title_area.page_content ul li.low-price a:hover p.price-diff {
+                    color: #b9cc9f;
+                }
             </style>
         `.trim();
         gameTitleRowDiv.appendChild(priceCheckRow);
@@ -407,8 +423,8 @@
     }
 
     // Wait until page has been loaded
-    window.addEventListener('load', function (event) {
+    window.addEventListener('DOMContentLoaded', function (event) {
         userscriptInit();
     }, false);
-
+    
 })();
