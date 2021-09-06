@@ -1,0 +1,14 @@
+// ==UserScript==
+// @name        Fake Identity Form Helper
+// @version     0.0.1
+// @description A toolkit to aid in creating false identities in online forms
+// @license     MIT
+// @author      markk112
+// @namespace   https://github.com/markk112
+// @match       https://store.steampowered.com/app/*
+// @grant       GM_xmlhttpRequest
+// @icon        https://steamcommunity.com/favicon.ico
+// @updateURL   https://raw.githubusercontent.com/markk112/userscripts/main/dist/fake-identity-form-helper.user.js
+// @downloadURL https://raw.githubusercontent.com/markk112/userscripts/main/dist/fake-identity-form-helper.user.js
+// @supportURL  https://github.com/markk112/userscripts/issues
+// ==/UserScript==
