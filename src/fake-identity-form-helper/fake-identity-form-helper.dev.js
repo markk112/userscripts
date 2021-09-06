@@ -1,12 +1,29 @@
 (() => {
     'use strict';
 
+    function injectToolkitArea() {
+        const toolkitNode = document.createElement('div');
+        toolkitNode.classList.add('fifh-base');
+        toolkitNode.innerHTML = `
+            <p style="text-align: center; font-size: 28px;">In Progress</p>
+        `.trim();
+        document.body.insertAdjacentElement('beforebegin', toolkitNode);
+    }
+
     function injectToolkitToggle() {
         const buttonWrapper = document.createElement('div');
         buttonWrapper.classList.add('fifh-toggle-wrapper');
         buttonWrapper.innerHTML = `
             <button><i class="fas fa-user-shield"></i></button>
         `.trim();
+        buttonWrapper.addEventListener('click', event => {
+            const base = document.querySelector('.fifh-base');
+            if (base.classList.contains('active')) {
+                base.classList.remove('active');
+            } else {
+                base.classList.add('active');
+            }
+        });
         document.body.appendChild(buttonWrapper);
     }
 
@@ -17,6 +34,16 @@
         const styleNode = document.createElement('style');
         styleNode.setAttribute('type', 'text/css');
         styleNode.innerHTML = `
+            .fifh-base.active {
+                height: 100px;
+            }
+            .fifh-base {
+                transition: 0.5s;
+                background-color: #FFF;
+                height: 0;
+                width: 100%;
+                border-bottom: 1px solid #E0E0E0;
+            }
             .fifh-toggle-wrapper {
                 position: fixed;
                 top: 200px;
@@ -50,6 +77,7 @@
     function init() {
         injectStyles();
         injectToolkitToggle();
+        injectToolkitArea();
     }
 
     init();
